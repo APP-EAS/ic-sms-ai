@@ -3,55 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InstantConnect | AI-Powered Upgrade</title>
+    <title>InstantConnect | Supercharge Your Lead Capture with AI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js" defer></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .plan-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .recommended-tag {
+            top: -1px;
+            right: -1px;
+        }
+    </style>
 </head>
 <body class="font-sans text-gray-900 leading-normal tracking-normal bg-gray-100">
-    <div class="min-h-screen flex flex-col justify-center" x-data="{ choice: 'basic' }">
-        <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 w-full">
-            <div class="bg-white rounded-lg shadow-xl p-8">
-                <h1 class="text-3xl font-bold text-center mb-6 text-indigo-900">Choose Your InstantConnect Plan</h1>
-                
-                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 mb-8">
-                    <div class="bg-gray-100 rounded-lg p-6 mb-4 md:mb-0 w-full md:w-1/2">
-                        <h2 class="text-2xl font-semibold mb-4 text-indigo-800">InstantConnect Basic</h2>
-                        <p class="text-3xl font-bold mb-4">$297<span class="text-lg font-normal">/month</span></p>
-                        <ul class="list-disc pl-6 mb-6">
-                            <li>Automated SMS responses</li>
-                            <li>24/7 lead capture</li>
-                            <li>Mobile app notifications</li>
-                        </ul>
-                        <p class="text-sm text-gray-600">Note: SMS costs not included.</p>
-                    </div>
-                    <div class="bg-indigo-100 rounded-lg p-6 w-full md:w-1/2 border-2 border-indigo-500">
-                        <h2 class="text-2xl font-semibold mb-4 text-indigo-800">InstantConnect with AI</h2>
-                        <p class="text-3xl font-bold mb-4">$497<span class="text-lg font-normal">/month</span></p>
-                        <ul class="list-disc pl-6 mb-6">
-                            <li>All Basic features</li>
-                            <li>24/7 automated AI responses</li>
-                            <li>Advanced lead qualification</li>
-                            <li>Personalized conversations</li>
-                        </ul>
-                        <p class="text-sm text-gray-600">Note: AI usage costs not included.</p>
-                    </div>
+    <div class="min-h-screen flex flex-col justify-center" x-data="{ choice: '' }">
+        <div class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 w-full">
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="gradient-bg text-white p-8 text-center">
+                    <h1 class="text-4xl font-bold mb-4">Supercharge Your Lead Capture with AI</h1>
+                    <p class="text-xl">Choose the plan that fits your business needs</p>
                 </div>
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row justify-center items-stretch space-y-8 md:space-y-0 md:space-x-8 mb-8">
+                        <div class="flex-1 bg-white rounded-lg p-6 border-2 transition-all duration-300 plan-hover cursor-pointer relative" :class="{ 'border-indigo-500': choice === 'basic', 'border-gray-200': choice !== 'basic' }" @click="choice = 'basic'">
+                            <h2 class="text-2xl font-semibold mb-4 text-indigo-800">InstantConnect Basic</h2>
+                            <p class="text-4xl font-bold mb-4 text-indigo-600">$297<span class="text-lg font-normal text-gray-600">/month</span></p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Automated SMS responses</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>24/7 lead capture</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Mobile app notifications</li>
+                            </ul>
+                            <p class="font-semibold text-indigo-600">I'll stick with InstantConnect Basic</p>
+                        </div>
+                        <div class="flex-1 bg-indigo-50 rounded-lg p-6 border-2 transition-all duration-300 plan-hover cursor-pointer relative" :class="{ 'border-indigo-500': choice === 'ai', 'border-gray-200': choice !== 'ai' }" @click="choice = 'ai'">
+                            <div class="absolute recommended-tag bg-green-500 text-white px-3 py-1 rounded-bl-lg text-sm font-semibold">RECOMMENDED</div>
+                            <h2 class="text-2xl font-semibold mb-4 text-indigo-800">InstantConnect with AI</h2>
+                            <p class="text-4xl font-bold mb-4 text-indigo-600">$497<span class="text-lg font-normal text-gray-600">/month</span></p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Basic features</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>24/7 automated AI responses</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Advanced lead qualification</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Personalized conversations</li>
+                            </ul>
+                            <p class="font-semibold text-green-600">Yes, Upgrade Me to AI-Powered Conversations!</p>
+                        </div>
+                    </div>
 
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button @click="choice = 'ai'" :class="{ 'bg-green-500 hover:bg-green-600': choice === 'ai', 'bg-gray-300 hover:bg-gray-400': choice !== 'ai' }" class="text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                        Yes, Upgrade Me to AI-Powered Conversations!
-                    </button>
-                    <button @click="choice = 'basic'" :class="{ 'bg-indigo-500 hover:bg-indigo-600': choice === 'basic', 'bg-gray-300 hover:bg-gray-400': choice !== 'basic' }" class="text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                        I'll stick with InstantConnect Basic
-                    </button>
-                </div>
-
-                <div class="mt-8 text-center">
-                    <a :href="choice === 'ai' ? 'https://app-eas.github.io/ic-voice-ai/?plan=ai' : 'https://app-eas.github.io/ic-voice-ai/?plan=basic'" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                        Continue to Next Step
-                    </a>
+                    <div class="text-center">
+                        <a x-bind:href="'https://app-eas.github.io/ic-voice-ai/?plan=' + choice" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-lg shadow-lg" x-bind:class="{ 'opacity-50 cursor-not-allowed': !choice, 'animate-pulse': choice }">
+                            Continue to Next Step
+                        </a>
+                    </div>
                 </div>
             </div>
+            <p class="text-center text-gray-600 text-sm mt-4">Note: SMS & AI usage costs not included.</p>
         </div>
     </div>
 </body>
