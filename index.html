@@ -58,7 +58,7 @@
 
                     <div class="text-center">
                         <p class="mb-4 text-2xl font-bold text-indigo-800">Total: $<span x-text="choice === 'ai' ? 497 : 297"></span><span class="text-lg font-normal text-gray-600">/mo</span></p>
-                        <a x-bind:href="'https://app-eas.github.io/ic-voice-ai/?plan=' + choice" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-lg shadow-lg" x-bind:class="{ 'opacity-50 cursor-not-allowed': !choice, 'animate-pulse': choice }">
+                        <a x-bind:href="'https://instantconnectvoice.eliteaisolutions.com/?plan=' + choice" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-lg shadow-lg" x-bind:class="{ 'opacity-50 cursor-not-allowed': !choice, 'animate-pulse': choice }">
                             <span x-text="choice === 'ai' ? 'Continue with AI Plan' : 'Continue with Basic Plan'"></span>
                         </a>
                     </div>
