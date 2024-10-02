@@ -18,55 +18,26 @@
             top: -1px;
             right: -1px;
         }
-        .annual-savings {
-            background: linear-gradient(45deg, #10B981 0%, #34D399 100%);
-        }
     </style>
 </head>
 <body class="font-sans text-gray-900 leading-normal tracking-normal bg-gray-100">
     <div class="min-h-screen flex flex-col justify-center" x-data="{ 
-        choice: 'ai',
-        billingCycle: 'annual',
-        getBasicPrice(cycle) {
-            return cycle === 'annual' ? 2667 : 297;
-        },
-        getAIPrice(cycle) {
-            return cycle === 'annual' ? 4467 : 497;
-        },
-        getTotalPrice() {
-            return this.choice === 'ai' ? this.getAIPrice(this.billingCycle) : this.getBasicPrice(this.billingCycle);
-        },
-        getAnnualSavings(plan) {
-            const monthlyPrice = plan === 'ai' ? 497 : 297;
-            const annualPrice = plan === 'ai' ? 4467 : 2667;
-            return (monthlyPrice * 12) - annualPrice;
-        }
+        choice: 'ai'
     }">
         <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 w-full">
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div class="gradient-bg text-white p-8 text-center">
-                    <h1 class="text-3xl sm:text-4xl font-bold mb-4">Transform Every Missed Call into Revenue</h1>
-                    <p class="text-xl">InstantConnect: Your Intelligent 24/7 SMS Sales Assistant</p>
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-4">Transform Missed Calls into Revenue</h1>
+                    <p class="text-xl">InstantConnect: Your AI-Powered 24/7 Lead Capture Solution</p>
                 </div>
                 <div class="p-4 sm:p-8">
-                    <div class="flex justify-center mb-4">
-                        <div class="bg-gray-200 rounded-full p-1">
-                            <button @click="billingCycle = 'monthly'" class="px-4 py-2 rounded-full text-sm sm:text-base" :class="{ 'bg-indigo-600 text-white': billingCycle === 'monthly', 'text-gray-700': billingCycle !== 'monthly' }">Monthly</button>
-                            <button @click="billingCycle = 'annual'" class="px-4 py-2 rounded-full text-sm sm:text-base" :class="{ 'bg-indigo-600 text-white': billingCycle === 'annual', 'text-gray-700': billingCycle !== 'annual' }">Annual (Save up to 25%!)</button>
-                        </div>
-                    </div>
-                    <p class="text-sm text-center mt-2 mb-8 text-indigo-600 font-semibold">Limited Time Offer: Lock in current prices with our annual plan!</p>
-
                     <div class="flex flex-col lg:flex-row justify-center items-stretch space-y-8 lg:space-y-0 lg:space-x-8 mb-8">
                         <div class="flex-1 bg-white rounded-lg p-6 border-2 transition-all duration-300 plan-hover cursor-pointer relative" :class="{ 'border-indigo-500': choice === 'basic', 'border-gray-200': choice !== 'basic' }" @click="choice = 'basic'">
                             <h2 class="text-xl sm:text-2xl font-semibold mb-4 text-indigo-800">InstantConnect Basic</h2>
-                            <p class="text-3xl sm:text-4xl font-bold mb-4 text-indigo-600">$<span x-text="getBasicPrice(billingCycle)"></span><span class="text-lg font-normal text-gray-600" x-text="billingCycle === 'monthly' ? '/mo' : '/yr'"></span></p>
-                            <div x-show="billingCycle === 'annual'" class="annual-savings text-center p-2 rounded-lg mb-4">
-                                <p class="font-semibold text-white">Save $<span x-text="getAnnualSavings('basic')"></span> per year!</p>
-                            </div>
-                            <p class="mb-4 text-indigo-600 font-semibold">Efficient SMS-based lead capture system</p>
+                            <p class="text-3xl sm:text-4xl font-bold mb-4 text-indigo-600">$297<span class="text-lg font-normal text-gray-600">/mo</span></p>
+                            <p class="mb-4">Reliable SMS-based lead capture within 2-3 minutes of a missed call</p>
                             <ul class="space-y-2 mb-6">
-                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Customizable SMS responses within 2-3 minutes of missed calls</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Prompt SMS response to missed calls</li>
                                 <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>24/7 lead capture</li>
                                 <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Real-time app notifications</li>
                             </ul>
@@ -75,23 +46,21 @@
                         <div class="flex-1 bg-indigo-50 rounded-lg p-6 border-2 border-indigo-500 transition-all duration-300 plan-hover cursor-pointer relative" @click="choice = 'ai'">
                             <div class="absolute best-value-tag bg-green-500 text-white px-3 py-1 rounded-bl-lg text-sm font-semibold">BEST VALUE</div>
                             <h2 class="text-xl sm:text-2xl font-semibold mb-4 text-indigo-800">InstantConnect with AI</h2>
-                            <p class="text-3xl sm:text-4xl font-bold mb-4 text-indigo-600">$<span x-text="getAIPrice(billingCycle)"></span><span class="text-lg font-normal text-gray-600" x-text="billingCycle === 'monthly' ? '/mo' : '/yr'"></span></p>
-                            <div x-show="billingCycle === 'annual'" class="annual-savings text-center p-2 rounded-lg mb-4">
-                                <p class="font-semibold text-white">Save $<span x-text="getAnnualSavings('ai')"></span> per year!</p>
-                            </div>
+                            <p class="text-3xl sm:text-4xl font-bold mb-4 text-indigo-600">$497<span class="text-lg font-normal text-gray-600">/mo</span></p>
                             <p class="mb-4 text-indigo-600 font-semibold">Advanced AI-powered SMS conversations for higher engagement and conversion rates</p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><strong class="text-indigo-800">All Basic features</strong></li>
-                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><strong class="text-indigo-800">AI-powered conversations</strong></li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><strong class="text-indigo-800">AI-powered SMS conversations</strong></li>
                                 <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Personalized replies for each lead</li>
-                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Customizable lead qualification process</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Intelligent lead qualification process</li>
+                                <li class="flex items-center"><svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Advanced lead scoring and prioritization</li>
                             </ul>
-                            <p class="font-semibold text-green-600">Unlock AI-powered lead conversion</p>
+                            <p class="font-semibold text-green-600">Upgrade to AI-powered conversations</p>
                         </div>
                     </div>
 
                     <div class="text-center">
-                        <p class="mb-4 text-2xl font-bold text-indigo-800">Total: $<span x-text="getTotalPrice()"></span><span class="text-lg font-normal text-gray-600" x-text="billingCycle === 'monthly' ? '/mo' : '/yr'"></span></p>
+                        <p class="mb-4 text-2xl font-bold text-indigo-800">Total: $<span x-text="choice === 'ai' ? 497 : 297"></span><span class="text-lg font-normal text-gray-600">/mo</span></p>
                         <a x-bind:href="'https://instantconnectvoice.eliteaisolutions.com/?plan=' + choice" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-block text-lg shadow-lg animate-pulse">
                             <span x-text="choice === 'ai' ? 'Unlock AI-Powered Lead Conversion' : 'Start Capturing More Leads Now'"></span>
                         </a>
